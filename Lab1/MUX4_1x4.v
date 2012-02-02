@@ -8,7 +8,7 @@
 //Date: 2012 01 28
 //Dependancies:
 //-----------------------------------------------------------------------------
-//DISCRIPTION:
+//DISCRIPTION:a generic 4->1 latch where each input and output is 4 wide
 //-----------------------------------------------------------------------------
 module MUX4_1x4
 	(

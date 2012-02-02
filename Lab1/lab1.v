@@ -5,10 +5,14 @@
 //Project: Multiplexed Display
 //
 //Author: Kehnin Dyer
-//Date: 2012 01 28
-//Dependancies: BCD_7SEG.v, MUX4_1x4.v
+//Date: 2012 02 02
+//Dependancies: BCD_7SEG.v, MUX4_1x4.v DATA_LATCH.v PRIORITY_N_COUNTER.v
 //-----------------------------------------------------------------------------
-//DISCRIPTION:
+//DISCRIPTION: Top level of Lab 1. Connects the counter with priority
+//encoder to a 4-1 by 4 mux which gets it's input from a latch that latches
+//during one count of the 4. the data from the mux is then sent to the bcd to
+//seven seg encoder which then gets output to the pins. the common is controlled
+//by the inverted priority encoder.
 //-----------------------------------------------------------------------------
 module lab1
 (
@@ -29,7 +33,7 @@ module lab1
 	
 //body
 assign COM = ~com_n;
-assign test = Muxd;
+//assign test = Muxd;
 	PRIORITY_N_COUNTER pc(CLK, Count, {LatchControl, com_n});
 	DATA_LATCH l(CLK, LatchControl, {A,B,C}, {L_A, L_B, L_C});
 	MUX4_1x4 m(Count, 4'h7, L_A, L_B, L_C, Muxd);

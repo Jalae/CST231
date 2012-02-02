@@ -8,7 +8,7 @@
 //Date: 2012 02 01
 //Dependancies:
 //-----------------------------------------------------------------------------
-//DISCRIPTION:
+//DISCRIPTION:it counts. it encodes. what more do you want?
 //-----------------------------------------------------------------------------
 
 module PRIORITY_N_COUNTER

@@ -8,14 +8,14 @@
 //Date: 2012 01 28
 //Dependancies:
 //-----------------------------------------------------------------------------
-//DISCRIPTION:
+//DISCRIPTION:A latch for the 12 bits of data that matter
 //-----------------------------------------------------------------------------
 module DATA_LATCH
 (
-	input 					CLK, 
-	input 			 		ENA_N,
+	input					CLK,
+	input					ENA_N,
 	input			[11:0]	INPUT,
-	output reg	[11:0]	OUTPUT
+	output reg		[11:0]	OUTPUT
 );
 
 always@(posedge CLK)

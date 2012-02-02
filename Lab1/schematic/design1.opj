@@ -51,14 +51,7 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources"
-         "Z:\B_Projects\School stuff\CST231_2\Lab1\schematic\design1.dsn")
-      (Path "Design Resources"
-         "Z:\B_Projects\School stuff\CST231_2\Lab1\schematic\design1.dsn"
-         "SCHEMATIC1")
-      (Select "Design Resources"
-         "Z:\B_Projects\School stuff\CST231_2\Lab1\schematic\design1.dsn"
-         "SCHEMATIC1" "PAGE1"))
+      (Select "Design Resources"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -69,7 +62,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 2 3 -1 -1 -8 -30 25 978 25 399")
-        (Scroll "0 58")
+        (Scroll "0 179")
         (Zoom "106")
         (Occurrence "/"))
       (Path "Z:\B_PROJECTS\SCHOOL STUFF\CST231_2\LAB1\SCHEMATIC\DESIGN1.DSN")
