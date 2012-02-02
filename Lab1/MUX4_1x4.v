@@ -10,18 +10,18 @@
 //-----------------------------------------------------------------------------
 //DISCRIPTION:
 //-----------------------------------------------------------------------------
-module MUX
+module MUX4_1x4
 	(
 		input		[1:0]	SEL,
-		input		[1:0]	InputA,
+		input		[3:0]	InputA,
 							InputB,
 							InputC,
 							InputD,
-		output	reg	[1:0]	OUTPUT
-	)
+		output	reg	[3:0]	OUTPUT
+	);
 
-always@*
-	case(sel)
+always@(*)
+	case(SEL)
 		2'd0: OUTPUT = InputA;
 		2'd1: OUTPUT = InputB;
 		2'd2: OUTPUT = InputC;
