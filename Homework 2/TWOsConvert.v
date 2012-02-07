@@ -1,12 +1,13 @@
 module TWOsConvert
 (
-	input	[4:0]	IN,
-	output	[4:0]	OUT
+	input		[4:0]	IN,
+	output	reg	[4:0]	OUT
 );
+
 always@(*)
 begin
 	if(IN[4])
-	OUT = (~IN) + 1'b1;
+	OUT = {IN[4], (~IN[3:0]) + 1'b1};
 	else
 	OUT = IN;
 end
