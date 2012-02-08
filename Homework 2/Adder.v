@@ -4,18 +4,18 @@
 //Homework 2
 //
 ///////////////////////////////////////////////////////////////////////////////
-module TWOsConvert
+module Adder
 (
-	input		[4:0]	IN,
-	output	reg	[4:0]	OUT
+	input		[5:0]	A,
+						B,
+	output	reg	[5:0]	C//,
+//	output	reg		O
 );
-
+wire cout;
 always@(*)
 begin
-	if(IN[4])
-	OUT = {IN[4], (~IN[3:0]) + 1'b1};
-	else
-	OUT = IN;
+C = A[5:0] + B[5:0];
+//O = ((A[5]&B[5])|(~A[5]&~B[5]))^C[5];
 end
 
 endmodule
