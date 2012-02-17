@@ -6,7 +6,7 @@
 //
 //Author: Kehnin Dyer
 //Date: 2012 01 28
-//Dependancies:
+//Dependancies: none
 //-----------------------------------------------------------------------------
 //DISCRIPTION:A latch for the 12 bits of data that matter
 //-----------------------------------------------------------------------------

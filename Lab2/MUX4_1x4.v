@@ -6,7 +6,7 @@
 //
 //Author: Kehnin Dyer
 //Date: 2012 01 28
-//Dependancies:
+//Dependancies:none
 //-----------------------------------------------------------------------------
 //DISCRIPTION:a generic 4->1 latch where each input and output is 4 wide
 //-----------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 //Class: CST 231
 //Author: Ralph Carestia ... tabun
 //Date: 2012 02 08
-//Dependancies: None
+//Dependancies: internal add3
 //-----------------------------------------------------------------------------
 //Apparently converts a number from binary to BCD.
 //-----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ module binary_to_BCD(A,ONES,TENS,HUNDREDS);
 endmodule
 
 
-// add2 module
+// add3 module
 module add3(in,out);
 	input [3:0] in;
 	output [3:0] out;

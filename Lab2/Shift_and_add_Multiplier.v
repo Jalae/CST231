@@ -5,7 +5,7 @@
 //Date: 2012 02 08
 //Dependancies: None
 //-----------------------------------------------------------------------------
-// Multiplys by shifting and adding
+// Multiplies by shifting and adding
 //-----------------------------------------------------------------------------
 
 module Shift_and_add_Multiplier

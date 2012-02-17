@@ -6,7 +6,7 @@
 //
 //Author: Kehnin Dyer
 //Date: 2012 02 01
-//Dependancies:
+//Dependancies: none
 //-----------------------------------------------------------------------------
 //DISCRIPTION:it counts. it encodes. what more do you want?
 //-----------------------------------------------------------------------------

@@ -1,3 +1,14 @@
+//-----------------------------------------------------------------------------
+//University: OIT - CSET
+//Class: CST 231
+//Author: Kehnin Dyer
+//Date: 2012 02 08
+//Dependancies: Shift_and_add_Multiplier.v, binary_to_BCD.v, Multiplexed_Display.v
+//				(BCD_7SEG.v, MUX4_1x4.v DATA_LATCH.v PRIORITY_N_COUNTER.v)
+//-----------------------------------------------------------------------------
+//Takes in 2 3-bit wide numbers then multiplies them via a shiftand add method
+//it then displays them on the 7 segment display.
+//-----------------------------------------------------------------------------
 
 
 module Lab2
@@ -7,7 +18,7 @@ module Lab2
 (* chip_pin = "6,5,4" *)				input	[2:0]	A,
 (* chip_pin = "12,11,9" *)				input	[2:0]	B,
 (* chip_pin = "16" *)					input			clear,
-(* chip_pin = "25,26,27,28,29,31,33" *)	output	[6:0]	seg,
+(* chip_pin = "33,31,29,28,27,26,25" *)	output	[6:0]	seg,//[g->a]
 (* chip_pin = "24,21,20" *)				output	[2:0]	COM
 );
 wire [7:0] c;
