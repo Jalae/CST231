@@ -11,7 +11,7 @@
 //DISCRIPTION:
 //-----------------------------------------------------------------------------
 
-module Lab4(
+module lab4(
 	input				RESET,
 	input				CLK,
 	input				N_SEN,
@@ -21,10 +21,10 @@ module Lab4(
 						NT_Light,
 						ST_Light,
 						E_Light,
-						W_Light,
+						W_Light
 );
-parameter	s_Idle = 18'o444444,//{N_Light,S_Light,NT_Light,ST_Light,E_Light,W_Light}
-			Idle = 0,
+parameter	s_IDLE = 18'o444444,//{N_Light,S_Light,NT_Light,ST_Light,E_Light,W_Light}
+			IDLE = 0,
 			s_NS_G = 18'o114444,
 			NS_G = 1,
 			s_NS_Y = 18'o224444,
@@ -45,8 +45,8 @@ parameter	s_Idle = 18'o444444,//{N_Light,S_Light,NT_Light,ST_Light,E_Light,W_Lig
 			T_G = 9,
 			s_T_Y  = 18'o442244,
 			T_Y = 10;
-wire [3:0] STATE;
-wire [2:0] CNT;
+reg	[3:0] STATE;
+reg	[2:0] CNT;
 always@ (posedge CLK or posedge ~RESET)
 begin
 	if(~RESET)
@@ -67,7 +67,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = NS_G;
-				else
+				end
 			end
 			NS_G:
 			begin
@@ -80,7 +80,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = NS_Y;
-				else
+				end
 			end
 			NS_Y:
 			begin
@@ -93,7 +93,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = EW_G;
-				else
+				end
 			end
 			EW_G:
 			begin
@@ -106,7 +106,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = EW_Y;
-				else
+				end
 			end
 			EW_Y:
 			begin
@@ -118,14 +118,15 @@ begin
 				else
 				begin
 					CNT = 0;
-					case({N_SENSOR,S_SENSOR})
+					case({N_SEN,S_SEN})
 						0:	STATE = NS_G;
 						1:	STATE = NT_G;
 						2:	STATE = ST_G;
 						3:	STATE = T_G;
 						default:
+							STATE = IDLE;
 					endcase
-				else
+				end
 			end
 			NT_G:
 			begin
@@ -138,7 +139,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = NT_Y;
-				else
+				end
 			end
 			NT_Y:
 			begin
@@ -151,7 +152,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = NS_G;
-				else
+				end
 			end
 			ST_G:
 			begin
@@ -164,7 +165,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = ST_Y;
-				else
+				end
 			end
 			ST_Y:
 			begin
@@ -177,7 +178,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = NS_G;
-				else
+				end
 			end
 			T_G:
 			begin
@@ -190,7 +191,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = T_Y;
-				else
+				end
 			end
 			T_Y:
 			begin
@@ -203,7 +204,7 @@ begin
 				begin
 					CNT = 0;
 					STATE = NS_G;
-				else
+				end
 			end
 			default:
 			begin

@@ -1,0 +1,10 @@
+|lab4
+RESET => always0.IN0
+CLK => CNT[0].CLK
+CLK => CNT[1].CLK
+CLK => CNT[2].CLK
+CLK => STATE.IN1
+N_SEN => Decoder0.IN0
+S_SEN => Decoder0.IN1
+
+

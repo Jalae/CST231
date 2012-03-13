@@ -1,0 +1,14 @@
+
+State Machine - |lab4|STATE
+Name STATE.state_bit_3 STATE.state_bit_2 STATE.state_bit_1 STATE.state_bit_0 
+STATE.0000 0 0 0 0 
+STATE.NS_G 0 0 0 1 
+STATE.NS_Y 0 1 1 0 
+STATE.EW_G 0 0 1 1 
+STATE.EW_Y 0 0 1 0 
+STATE.NT_G 1 0 0 1 
+STATE.NT_Y 0 1 0 0 
+STATE.ST_G 1 0 0 0 
+STATE.ST_Y 0 1 0 1 
+STATE.T_G 1 0 1 0 
+STATE.T_Y 0 1 1 1 
