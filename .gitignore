@@ -46,3 +46,6 @@ Thumbs.db
 *.dbg
 *.wlf
 /db/*
+
+Lab 4/db/*
+Lab 4/db/*.*
