@@ -9,6 +9,8 @@
 //Dependancies: none
 //-----------------------------------------------------------------------------
 //DISCRIPTION:
+//	controls the stoplights for a 4 way intersection, with turning lights
+//	on the north and south side. implemented with a state machine.
 //-----------------------------------------------------------------------------
 
 module lab4(
