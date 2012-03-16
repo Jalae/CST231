@@ -29,11 +29,20 @@ begin
 end
 always@(count)
 	case(count)
-		0:SCAN = 4'b1110;
-		1:SCAN = 4'b1101;
-		2:SCAN = 4'b1011;
-		default: 4'b0111;
-	endcase
+	//if i have this go contrary to my better sences, i can 
+	//make the reset better... but then this will be the other way
+	//around... and the lsb == 0 will be count == 4... er....
+		//0:SCAN = 4'b1110;
+		//1:SCAN = 4'b1101;
+		//2:SCAN = 4'b1011;
+		//default:SCAN = 4'b0111;
+		//fine... it will make the logic later cleaner.
+		0:		SCAN = 4'b0111;
+		1:		SCAN = 4'b1011;
+		2:		SCAN = 4'b1101;
+		default:SCAN = 4'b1110;
+
+endcase
 end
 
 endmodule

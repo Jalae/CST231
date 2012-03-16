@@ -29,49 +29,36 @@
 //-----------------------------------------------------------------------------
 
 module lab5(
-	input				CLK,
-	input				RESET,
+(* chip_pin = "43" *)						input				CLK,
 	input		[3:0]	K_I,//8, 7, 6, 5
 	output	reg	[3:0]	K_O,//4, 3, 2, 1
-	output	reg	[6:0]	SEG,
-	output	reg	[2:0]	COM
+(* chip_pin = "25,26,27,28,29,31,33" *)		output	reg	[6:0]	SEG,
+(* chip_pin = "24,21,20" *)					output	reg	[2:0]	COM
 );
 
-reg [1:0]	count;
-reg [1:0]	col;
-
+wire	[1:0]	count;
+wire	[1:0]	row;
+wire 			load;
+wire	[3:0]	Key,
+				A,
+				B,
+				C;
 
 assign ena = &K_O;	//if they are all 1, there is nothing pushed.
 					//then ena becomes 0 locking out changes.
 
 KP_Scan sc(CLK, ena, K_O, count); //posedge clk change outputs.
-
-//ena changes fast
-//but the column value changes slow.
-KP_Read rd(K_I, col);
-KP_Latch lc()
-
-reg [3:0]	KeyVal; //output set by
+KP_Read rd(K_I, row);
+KP_sMachine stm(CLK, ena, load)
+KP_Latch lc(ena, {count,row}, Key);
+KP_ShiftRegister shr(CLK, load, Key, C, B, A);
+lab1(CLK, A, B, C, SEG, COM);
 
 
 
-always@(posedge ~CLK)
-State = nState;
-
-always@(posedge CLK)
-begin
 
 
-end
 
-always@(~RESET or )
-begin
-	if(~RESET)
-	begin
-		{db0,db1,db2,db3} = 16'hFFFF;
-	end
-
-end
 
 
 

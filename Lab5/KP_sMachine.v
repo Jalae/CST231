@@ -22,9 +22,26 @@ parameter	s_SCAN = 0,
 
 reg	[1:0] state;
 
-always@ (posedge clk
+always@ (posedge clk)
+begin
+	case(state)
+		s_SCAN:
+			if(en)
+				state = s_IDLE;
+			else
+				state = s_PRESSED;
+		s_PRESSED:
+			if(!en)
+				state = s_PRESSED;
+			else
+				state = s_RELEASED;
+		s_RELEASED:
+//unbouncing isn't a problem because we are waiting atleast 1.5 clocks before checking again
+				state = s_IDLE;
+		default:
+				state = s_IDLE;
 
-
-
+		load = state == s_RELEASED;
+end
 endmodule
 
