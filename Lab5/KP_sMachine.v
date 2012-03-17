@@ -12,9 +12,9 @@
 //-----------------------------------------------------------------------------
 
 module KP_sMachine(
-	input	clk,
-	input	en,
-	output	load
+	input		clk,
+	input		en,
+	output	reg	load
 );
 parameter	s_SCAN = 0,
 			s_PRESSED = 1,
@@ -27,7 +27,7 @@ begin
 	case(state)
 		s_SCAN:
 			if(en)
-				state = s_IDLE;
+				state = s_SCAN;
 			else
 				state = s_PRESSED;
 		s_PRESSED:
@@ -37,11 +37,11 @@ begin
 				state = s_RELEASED;
 		s_RELEASED:
 //unbouncing isn't a problem because we are waiting atleast 1.5 clocks before checking again
-				state = s_IDLE;
+				state = s_SCAN;
 		default:
-				state = s_IDLE;
-
-		load = state == s_RELEASED;
+				state = s_SCAN;
+		endcase
+		load = (state == s_RELEASED);
 end
 endmodule
 

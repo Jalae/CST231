@@ -14,12 +14,12 @@
 
 
 module KP_ShiftRegister(
-input	clk,
-input	shift,
-input	[3:0]	d,
-output	[3:0]	q0,
-output	[3:0]	q1,
-output	[3:0]	q2
+input				clk,
+input				shift,
+input		[3:0]	d,
+output	reg	[3:0]	q0,
+output	reg	[3:0]	q1,
+output	reg	[3:0]	q2
 //i want system verilog... ;-;
 );
 always@ (posedge clk)
@@ -35,7 +35,7 @@ begin
 			else
 			begin
 				{q0,q1,q2} = {d,q0,q1};
-			else
+			end
 		end
 	else
 		begin

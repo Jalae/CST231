@@ -43,7 +43,7 @@ always@(count)
 		default:SCAN = 4'b1110;
 
 endcase
-end
+
 
 endmodule
 

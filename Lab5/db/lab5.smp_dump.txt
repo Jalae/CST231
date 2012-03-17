@@ -1,0 +1,6 @@
+
+State Machine - |lab5|KP_sMachine:stm|state
+Name state.state_bit_1 state.state_bit_0 
+state.s_SCAN 0 0 
+state.s_PRESSED 1 0 
+state.s_RELEASED 1 1 

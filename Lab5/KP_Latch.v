@@ -18,7 +18,7 @@ module KP_Latch(
 	output	reg	[3:0]	d_l
 );
 always@(negedge ena) //when it goes high latch that crap
-	d_l = dl;
+	d_l = d;
 	//because there is a delay assosiated with logic the value latched here
 	//is actually the previous value (ie before ena drops
 

@@ -35,7 +35,7 @@ module lab1
 assign COM = ~com_n;
 //assign test = Muxd;
 	PRIORITY_N_COUNTER pc(CLK, Count, {LatchControl, com_n});
-	DATA_LATCH l(CLK, LatchControl, {A,B,C}, {L_A, L_B, L_C});
-	MUX4_1x4 m(Count, 4'h7, L_A, L_B, L_C, Muxd);
+	//DATA_LATCH l(CLK, LatchControl, {A,B,C}, {L_A, L_B, L_C});
+	MUX4_1x4 m(Count, 4'h0, A, B, C, Muxd);
 	BCD_7SEG b(Muxd, SEG);
 endmodule
