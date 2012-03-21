@@ -1,0 +1,179 @@
+|Elevator
+clk => comb.DATAIN
+btsA[0] => comb.DATAIN
+btsA[1] => comb.DATAIN
+btsA[2] => comb.DATAIN
+btsA[3] => comb.DATAIN
+btsB[0] => comb.DATAIN
+btsB[1] => comb.DATAIN
+btsB[2] => comb.DATAIN
+btsB[3] => comb.DATAIN
+Door[0] <= E_DoorAnim:DA.port3
+Door[1] <= E_DoorAnim:DA.port3
+Door[2] <= E_DoorAnim:DA.port3
+Door[3] <= E_DoorAnim:DA.port3
+SEG[0] <= E_SegEnc:SE.port2
+SEG[1] <= E_SegEnc:SE.port2
+SEG[2] <= E_SegEnc:SE.port2
+SEG[3] <= E_SegEnc:SE.port2
+SEG[4] <= E_SegEnc:SE.port2
+SEG[5] <= E_SegEnc:SE.port2
+SEG[6] <= E_SegEnc:SE.port2
+COM[0] <= E_SegEnc:SE.port1
+COM[1] <= E_SegEnc:SE.port1
+COM[2] <= E_SegEnc:SE.port1
+m_up <= m_up~reg0.DB_MAX_OUTPUT_PORT_TYPE
+m_dn <= m_dn~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|E_ButtonLatch:BL
+clk => always0.IN0
+clr => c.OUTPUTSELECT
+clr => c.OUTPUTSELECT
+clr => c.OUTPUTSELECT
+clr => c.OUTPUTSELECT
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+curFlr[0] => c.IN0
+curFlr[1] => c.IN0
+curFlr[2] => c.IN0
+curFlr[3] => c.IN0
+c[0] <= c[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|E_StateMachine:SM
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => state.IN1
+bts[0] => always0.IN1
+bts[0] => always0.IN0
+bts[1] => always0.IN1
+bts[1] => always0.IN0
+bts[2] => always0.IN1
+bts[2] => always0.IN0
+bts[3] => always0.IN1
+bts[3] => always0.IN0
+curFlr[0] => always0.IN0
+curFlr[0] => always0.IN1
+curFlr[1] => always0.IN0
+curFlr[1] => always0.IN1
+curFlr[2] => always0.IN0
+curFlr[2] => always0.IN1
+curFlr[3] => always0.IN0
+curFlr[3] => always0.IN1
+mEn <= mEn.DB_MAX_OUTPUT_PORT_TYPE
+DoorOpen <= DoorOpen.DB_MAX_OUTPUT_PORT_TYPE
+DoorClose <= DoorClose.DB_MAX_OUTPUT_PORT_TYPE
+clearFlr <= clearFlr.DB_MAX_OUTPUT_PORT_TYPE
+ShiftFlr <= ShiftFlr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|E_DoShift:DS
+clk => always0.IN0
+dir => Mux0.IN1
+dir => Mux1.IN0
+dir => Mux2.IN0
+dir => Mux3.IN1
+en => Mux0.IN2
+en => Mux1.IN1
+en => Mux2.IN1
+en => Mux3.IN2
+curFlr[0] <= curFlr[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+curFlr[1] <= curFlr[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+curFlr[2] <= curFlr[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+curFlr[3] <= curFlr[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|E_DoorAnim:DA
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+dO => cnt.OUTPUTSELECT
+dO => cnt.OUTPUTSELECT
+dO => cnt.OUTPUTSELECT
+dC => cnt.OUTPUTSELECT
+dC => cnt.OUTPUTSELECT
+dC => cnt.OUTPUTSELECT
+Door[0] <= Door.DB_MAX_OUTPUT_PORT_TYPE
+Door[1] <= Door.DB_MAX_OUTPUT_PORT_TYPE
+Door[2] <= Door.DB_MAX_OUTPUT_PORT_TYPE
+Door[3] <= Door.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|E_GetDirection:GD
+clk => fdir.CLK
+bts[0] => Mux0.IN18
+bts[0] => Mux1.IN18
+bts[0] => Mux2.IN18
+bts[0] => Mux3.IN18
+bts[0] => Mux4.IN18
+bts[0] => Mux5.IN18
+bts[0] => Mux6.IN18
+bts[0] => Mux7.IN18
+bts[1] => Mux0.IN17
+bts[1] => Mux1.IN17
+bts[1] => Mux2.IN17
+bts[1] => Mux3.IN17
+bts[1] => Mux4.IN17
+bts[1] => Mux5.IN17
+bts[1] => Mux6.IN17
+bts[1] => Mux7.IN17
+bts[2] => Mux0.IN16
+bts[2] => Mux1.IN16
+bts[2] => Mux2.IN16
+bts[2] => Mux3.IN16
+bts[2] => Mux4.IN16
+bts[2] => Mux5.IN16
+bts[2] => Mux6.IN16
+bts[2] => Mux7.IN16
+bts[3] => Mux0.IN15
+bts[3] => Mux1.IN15
+bts[3] => Mux2.IN15
+bts[3] => Mux3.IN15
+bts[3] => Mux4.IN15
+bts[3] => Mux5.IN15
+bts[3] => Mux6.IN15
+bts[3] => Mux7.IN15
+curFlr[0] => LessThan0.IN4
+curFlr[0] => Mux3.IN19
+curFlr[0] => Mux7.IN19
+curFlr[1] => LessThan0.IN3
+curFlr[1] => Mux2.IN19
+curFlr[1] => Mux6.IN19
+curFlr[2] => LessThan0.IN2
+curFlr[2] => Mux1.IN19
+curFlr[2] => Mux5.IN19
+curFlr[3] => LessThan0.IN1
+curFlr[3] => Mux0.IN19
+curFlr[3] => Mux4.IN19
+dir <= fdir.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|E_SegEnc:SE
+curFlr[0] => Decoder0.IN3
+curFlr[1] => Decoder0.IN2
+curFlr[2] => Decoder0.IN1
+curFlr[3] => Decoder0.IN0
+COM[0] <= <VCC>
+COM[1] <= <GND>
+COM[2] <= <VCC>
+SEG[0] <= SEG.DB_MAX_OUTPUT_PORT_TYPE
+SEG[1] <= SEG.DB_MAX_OUTPUT_PORT_TYPE
+SEG[2] <= SEG.DB_MAX_OUTPUT_PORT_TYPE
+SEG[3] <= SEG.DB_MAX_OUTPUT_PORT_TYPE
+SEG[4] <= SEG.DB_MAX_OUTPUT_PORT_TYPE
+SEG[5] <= SEG.DB_MAX_OUTPUT_PORT_TYPE
+SEG[6] <= SEG.DB_MAX_OUTPUT_PORT_TYPE
+
+

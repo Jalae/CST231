@@ -1,0 +1,297 @@
+Quartus II
+Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
+33
+2061
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+E_SegEnc
+# storage
+db|Elevator.(6).cnf
+db|Elevator.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e_segenc.v
+4bdbfdce4e6effeeddff25edf36bff8
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+E_SegEnc:SE
+}
+# macro_sequence
+
+# end
+# entity
+E_ButtonLatch
+# storage
+db|Elevator.(1).cnf
+db|Elevator.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e_buttonlatch.v
+6f5a9888e4182eee314c3fb294b6a1ff
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+E_ButtonLatch:BL
+}
+# macro_sequence
+
+# end
+# entity
+E_DoShift
+# storage
+db|Elevator.(3).cnf
+db|Elevator.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e_doshift.v
+4d5bb35aedb07f9630cf2d49c92a91b7
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+E_DoShift:DS
+}
+# macro_sequence
+
+# end
+# entity
+E_DoorAnim
+# storage
+db|Elevator.(4).cnf
+db|Elevator.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e_dooranim.v
+4ddecf43ab9c4b99d94d5a942388723
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+E_DoorAnim:DA
+}
+# macro_sequence
+
+# end
+# entity
+E_GetDirection
+# storage
+db|Elevator.(5).cnf
+db|Elevator.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e_getdirection.v
+332a23b2521aa45233db68f08b2779
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+E_GetDirection:GD
+}
+# macro_sequence
+
+# end
+# entity
+E_StateMachine
+# storage
+db|Elevator.(2).cnf
+db|Elevator.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+e_statemachine.v
+a8eb5d88259394f543431d5fb463703e
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+s_Move
+0011
+PARAMETER_UNSIGNED_BIN
+DEF
+s_Arrived
+0100
+PARAMETER_UNSIGNED_BIN
+DEF
+s_DoorOpen
+0000
+PARAMETER_UNSIGNED_BIN
+DEF
+s_Idle
+0001
+PARAMETER_UNSIGNED_BIN
+DEF
+s_DoorClose
+0010
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+E_StateMachine:SM
+}
+# macro_sequence
+
+# end
+# entity
+Elevator
+# storage
+db|Elevator.(0).cnf
+db|Elevator.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+elevator.v
+80f32a0cca17d15e75595329a91140
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# complete
+

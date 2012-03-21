@@ -1,0 +1,8 @@
+
+State Machine - |Elevator|E_StateMachine:SM|state
+Name state.state_bit_2 state.state_bit_1 state.state_bit_0 
+state.s_DoorOpen 0 0 0 
+state.s_Idle 0 0 1 
+state.s_DoorClose 0 1 0 
+state.s_Move 0 1 1 
+state.s_Arrived 1 0 0 
