@@ -84,8 +84,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 2 3 -1 -1 -8 -30 50 1696 50 564")
-        (Scroll "-372 -4")
-        (Zoom "72")
+        (Scroll "44 448")
+        (Zoom "144")
         (Occurrence "/"))
       (Path "Z:\B_PROJECTS\SCHOOL STUFF\CST231_2\LAB 4\SCHEMATIC\DESIGN1.DSN")
       (Schematic "SCHEMATIC1")

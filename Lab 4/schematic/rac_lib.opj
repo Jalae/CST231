@@ -13,7 +13,7 @@
     (FileView
       (Path "Design Resources")
       (Select "Design Resources"
-         "Z:\B_Projects\School stuff\CST231_2\Lab3\schematic\rac_lib.olb"))
+         "Z:\B_Projects\School stuff\CST231_2\Lab 4\schematic\rac_lib.olb"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")

@@ -1,35 +1,38 @@
 
 
+
 module Elevator(
-(* chip_pin = "43" *)					input		clk,
-(* chip_pin = "8,6,5,4" *)				input	[3:0]	FB,
-(* chip_pin = "14,12,11,9" *)			input	[3:0]	Call,
-(* chip_pin = "19,18,17,16" *)			output	[3:0]	Door,
+(* chip_pin = "43" *)					input			clk,
+(* chip_pin = "8,6,5,4" *)				input	[3:0]	btsA,
+(* chip_pin = "14,12,11,9" *)			input	[3:0]	btsB,
+(* chip_pin = "16,17,18,19" *)			output	[3:0]	Door,
 (* chip_pin = "25,26,27,28,29,31,33" *)	output	[6:0]	SEG,
-(* chip_pin = "24,21,20" *)				output	[2:0]	COM,
-(* chip_pin = "34" *)					output	M_UP, //left
-(* chip_pin = "39" *)					output	M_DN
+(* chip_pin = "20,21,24" *)				output	[2:0]	COM,
+(* chip_pin = "37" *)					output	reg		m_up,
+(* chip_pin = "39" *)					output	reg		m_dn
 );
+wire [3:0]	curFlr,
+			bts;
+wire	clearFlr,
+		motorEna,
+		doorOpen,
+		doorClose,
+		shiftFlr,
+		dir;
 
-wire	[3:0]	button;
-wire	[1:0]	curFlr;
-//wire	[1:0]	nxtFlr;
-wire			clr;
-wire			dir;
-wire			motorEn;
-wire			moving;
-wire			flrChg;
+E_ButtonLatch BL(clk, clearFlr, btsA, btsB, curFlr, bts);
+E_StateMachine SM(clk, bts, curFlr, motorEna, doorOpen, doorClose, clearFlr, shiftFlr);
+E_DoShift DS(clk, dir, shiftFlr, curFlr);
+E_DoorAnim DA(clk, doorOpen, doorClose, Door);
+E_GetDirection GD(clk, bts, curFlr, dir);
 
-wire [1:0] number; // this is used for theoretical animations i might do
+always@(posedge clk)
+begin
+	m_up = dir && motorEna;
+	m_dn = (~dir) && motorEna;
+end
 
-Elevator_ButtonLatch bl(clk, clr, curFlr, FB, Call, button);
-Elevator_Moving m(button, curFlr, dir, moving);
-Elevator_SetMotor sm(motorEn, dir, M_UP, M_DN);
-Elevator_ChangeFlr cf(flrChg, M_UP, M_DN, curFlr);
-Elevator_sMachine smach(clk, moving, motorEn, Door, clr, flrChg);
+E_SegEnc SE(curFlr, COM, SEG);
 
-//assign SEG = button;
-//assign COM = 3'b101;
-lab1 l(curFlr,SEG,COM);
 endmodule
 
