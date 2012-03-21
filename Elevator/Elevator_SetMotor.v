@@ -5,8 +5,8 @@ module Elevator_SetMotor(
 			motor_down
 );
 
-assign motor_up = dir && en;
-assign motor_down = (~dir) && en;
+assign motor_up = ~(dir && en);
+assign motor_down = ~((~dir) && en);
 
 endmodule
 

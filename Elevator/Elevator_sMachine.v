@@ -5,10 +5,11 @@
 module Elevator_sMachine(
 	input				CLK,		//1hz
 	input				Moving,		//external logic lets us know we have somewhere to go
-	output		[1:0]	Number,
+	//output	reg	[1:0]	Number,
 	output				MotorEn,
 	output	reg [3:0]	DoorAnim,
-	output				clr
+	output				clr,
+	output				flrChg
 );
 
 parameter	s_dOpen		= 3'h0,
@@ -21,16 +22,17 @@ parameter	s_dOpen		= 3'h0,
 reg	[3:0]	state;
 reg [3:0]	count;
 
-assign Number = {state[2]&state[1],state[2]&state[0]};
-assign MotorEn = state[2];
-assign clr = state == s_Arrived;
+//Number = {state[2]&state[1],state[2]&state[0]};
+assign MotorEn = (state==s_Arrived)|(state==s_Moving)|(state==s_Depart);
+assign clr = (state == s_dClose);
+assign flrChg = (state == s_Moving);
 //clr needs to set to change the curflr before we get to the next
 //CLK edge
 
 always@(posedge CLK)
 begin
 
-	case(Moving)
+	case(state)
 		s_dOpen:
 		begin
 			if(|DoorAnim)

@@ -10,17 +10,15 @@ module Elevator_ButtonLatch(
 );
 
 wire [3:0] buttons;
-reg [3:0] mask;
-assign buttons = a | b;
+assign buttons = a | b ;
 
-always@ (posedge ~clk)
+always@ (negedge clk)
 begin
 	if(clr)
-		mask = (~( 4'd1 << curFlr));
-		//mask = clr?(~( 4'd1 << curFlr)):(4'hF);
+		c = (c|buttons) & (~( 4'd1 << curFlr));
 	else
-		mask = (4'hF);
-	c = buttons & mask;
+		c = (c|buttons) & (4'hF);
+
 end
 
 endmodule

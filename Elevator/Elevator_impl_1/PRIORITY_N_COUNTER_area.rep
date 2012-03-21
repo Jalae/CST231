@@ -1,0 +1,50 @@
+//  Precision RTL Synthesis 2011a.61 (Production Release) Fri May 20 13:37:48 PDT 2011
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2011, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Windows 7 kehnin.dyer@MCKAY Service Pack 1 6.01.7601 x86
+//  
+//  Start time Tue Mar 20 20:14:20 2012
+
+***************************************************************
+Device Utilization for EPM7064STC44
+***************************************************************
+Resource                          Used    Avail   Utilization
+---------------------------------------------------------------
+IOs                               7       32       21.88%
+LCs                               6       64        9.38%
+DFFs                              2       64        3.13%
+EXPs                              0       64        0.00%
+---------------------------------------------------------------
+
+************************************************************
+
+Library: work    Cell: PRIORITY_N_COUNTER    View: INTERFACE
+
+************************************************************
+
+  Cell     Library  References     Total Area
+
+ AND2      max7s     6 x
+ DFF       max7s     2 x      1      2 DFFs
+                              1      2 LCs
+ INBUF     max7s     1 x
+ NOT       max7s     2 x
+ OR2       max7s     1 x
+ OUTBUF    max7s     6 x
+ SOFT      max7s     4 x
+ VCC       max7s     1 x
+
+ Number of ports :                       7
+ Number of nets :                       24
+ Number of instances :                  23
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of DFFs :                        2
+ Number of LCs :                         6
+ Number of accumulated instances :      23

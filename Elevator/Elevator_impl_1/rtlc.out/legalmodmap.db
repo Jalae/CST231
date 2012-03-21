@@ -1,0 +1,12 @@
+BCD_7SEG BCD_7SEG
+Elevator_ChangeFlr Elevator_ChangeFlr
+Elevator_ButtonLatch Elevator_ButtonLatch
+lab1 lab1
+Elevator_SetMotor Elevator_SetMotor
+Elevator Elevator
+Elevator_ButtonDecode Elevator_ButtonDecode
+Elevator_SetDestination Elevator_SetDestination
+Elevator_sMachine Elevator_sMachine
+Elevator_Moving Elevator_Moving
+PRIORITY_N_COUNTER PRIORITY_N_COUNTER
+#LEGALIZEDMOD_COUNTER 0

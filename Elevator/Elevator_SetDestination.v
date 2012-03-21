@@ -8,11 +8,10 @@ module Elevator_SetDestination(
 	output	[1:0]	nxtFlr
 );
 
-reg	[3:0]	lower;
+wire [3:0]	lower;
 reg	[3:0]	toenc;
 
-always@ (curFlr or button)
-	lower = button & ~(4'hF << curFlr);
+assign	lower = button & ~(4'hF << curFlr);
 
 always@ (lower or button)
 begin
@@ -22,7 +21,7 @@ begin
 		toenc = button;
 end
 
-Elevator_ButtonDecode BD(toenc, nxtFlr);
+Elevator_ButtonDecode BD((toenc?toenc:(4'h1<<curFlr)), nxtFlr);
 
 endmodule
 

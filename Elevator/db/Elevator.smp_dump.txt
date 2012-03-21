@@ -1,0 +1,9 @@
+
+State Machine - |Elevator|Elevator_sMachine:smach|state
+Name state.state_bit_2 state.state_bit_1 state.state_bit_0 
+state.s_dOpen 0 0 0 
+state.s_Idle 0 0 1 
+state.s_dClose 0 1 0 
+state.s_Arrived 0 1 1 
+state.s_Moving 1 0 1 
+state.s_Depart 1 0 0 

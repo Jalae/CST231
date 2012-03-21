@@ -1,0 +1,210 @@
+(edif PRIORITY_N_COUNTER 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2012 03 21 03 17 45)
+   (program "Precision RTL Synthesis" (version "2011a.61"))
+   (author "Mentor Graphics Corporation")))
+ (external max7s 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell INBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port IN (direction INPUT))
+     (port OUT (direction OUTPUT)))))
+  (cell DFF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port CLK (direction INPUT))
+     (port CLRN (direction INPUT))
+     (port PRN (direction INPUT))
+     (port Q (direction OUTPUT)))))
+  (cell OUTBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port IN (direction INPUT))
+     (port OUT (direction OUTPUT)))))
+  (cell AND2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port IN1 (direction INPUT))
+     (port IN2 (direction INPUT))
+     (port Y (direction OUTPUT)))))
+  (cell NOT (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port IN1 (direction INPUT))
+     (port Y (direction OUTPUT)))))
+  (cell VCC (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port Y (direction OUTPUT)))))
+  (cell OR2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port IN1 (direction INPUT))
+     (port IN2 (direction INPUT))
+     (port Y (direction OUTPUT)))))
+  (cell SOFT (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port IN1 (direction INPUT))
+     (port Y (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell PRIORITY_N_COUNTER (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port CLK (direction INPUT))
+     (port (array (rename COUNT "COUNT(1:0)") 2 )(direction OUTPUT))
+     (port (array (rename OUTPUT "OUTPUT(3:0)") 4 )(direction OUTPUT)))
+    (property DESIGN_IS_RTL (string "NO"))
+    (contents 
+     (instance CLK_ibuf (viewRef NETLIST  (cellRef INBUF (libraryRef max7s ))))
+     (instance modgen_counter_COUNT_reg_q_1 (viewRef NETLIST  (cellRef DFF (libraryRef max7s )))
+      (property no_enable_dff (string "TRUE")))
+     (instance modgen_counter_COUNT_reg_q_0 (viewRef NETLIST  (cellRef DFF (libraryRef max7s )))
+      (property no_enable_dff (string "TRUE")))
+     (instance COUNT_obuf_1 (viewRef NETLIST  (cellRef OUTBUF (libraryRef max7s ))))
+     (instance COUNT_obuf_0 (viewRef NETLIST  (cellRef OUTBUF (libraryRef max7s ))))
+     (instance OUTPUT_obuf_3 (viewRef NETLIST  (cellRef OUTBUF (libraryRef max7s ))))
+     (instance OUTPUT_obuf_2 (viewRef NETLIST  (cellRef OUTBUF (libraryRef max7s ))))
+     (instance OUTPUT_obuf_1 (viewRef NETLIST  (cellRef OUTBUF (libraryRef max7s ))))
+     (instance OUTPUT_obuf_0 (viewRef NETLIST  (cellRef OUTBUF (libraryRef max7s ))))
+     (instance OUTPUT_3 (viewRef NETLIST  (cellRef AND2 (libraryRef max7s )))
+      (property area_report (string "1")))
+     (instance OUTPUT_2 (viewRef NETLIST  (cellRef AND2 (libraryRef max7s )))
+      (property area_report (string "1")))
+     (instance OUTPUT_1 (viewRef NETLIST  (cellRef AND2 (libraryRef max7s )))
+      (property area_report (string "1")))
+     (instance OUTPUT_0 (viewRef NETLIST  (cellRef AND2 (libraryRef max7s )))
+      (property area_report (string "1")))
+     (instance not_COUNT_0 (viewRef NETLIST  (cellRef NOT (libraryRef max7s ))))
+     (instance ps_vcc (viewRef NETLIST  (cellRef VCC (libraryRef max7s ))))
+     (instance ix48188z30852 (viewRef NETLIST  (cellRef OR2 (libraryRef max7s ))))
+     (instance ix48188z48515 (viewRef NETLIST  (cellRef AND2 (libraryRef max7s ))))
+     (instance ix48188z48516 (viewRef NETLIST  (cellRef AND2 (libraryRef max7s ))))
+     (instance ix13368z41041 (viewRef NETLIST  (cellRef SOFT (libraryRef max7s ))))
+     (instance ix12371z41041 (viewRef NETLIST  (cellRef SOFT (libraryRef max7s ))))
+     (instance ix11374z41041 (viewRef NETLIST  (cellRef SOFT (libraryRef max7s ))))
+     (instance ix10377z41041 (viewRef NETLIST  (cellRef SOFT (libraryRef max7s ))))
+     (instance ix48188z16929 (viewRef NETLIST  (cellRef NOT (libraryRef max7s ))))
+     (net CLK 
+      (joined 
+       (portRef CLK )
+       (portRef IN (instanceRef CLK_ibuf ))))
+     (net COUNT_dup_0_1 
+      (joined 
+       (portRef Q (instanceRef modgen_counter_COUNT_reg_q_1 ))
+       (portRef IN (instanceRef COUNT_obuf_1 ))
+       (portRef IN1 (instanceRef ix48188z16929 ))
+       (portRef IN1 (instanceRef ix48188z48515 ))
+       (portRef IN1 (instanceRef OUTPUT_1 ))
+       (portRef IN1 (instanceRef OUTPUT_0 ))))
+     (net COUNT_dup_0_0 
+      (joined 
+       (portRef Q (instanceRef modgen_counter_COUNT_reg_q_0 ))
+       (portRef IN (instanceRef COUNT_obuf_0 ))
+       (portRef IN1 (instanceRef not_COUNT_0 ))
+       (portRef IN1 (instanceRef ix48188z48516 ))
+       (portRef IN1 (instanceRef OUTPUT_2 ))
+       (portRef IN2 (instanceRef OUTPUT_0 ))))
+     (net CLK_int 
+      (joined 
+       (portRef OUT (instanceRef CLK_ibuf ))
+       (portRef CLK (instanceRef modgen_counter_COUNT_reg_q_1 ))
+       (portRef CLK (instanceRef modgen_counter_COUNT_reg_q_0 ))))
+     (net COUNT_1 
+      (joined 
+       (portRef (member COUNT 0))
+       (portRef OUT (instanceRef COUNT_obuf_1 ))))
+     (net COUNT_0 
+      (joined 
+       (portRef (member COUNT 1))
+       (portRef OUT (instanceRef COUNT_obuf_0 ))))
+     (net OUTPUT_3 
+      (joined 
+       (portRef (member OUTPUT 0))
+       (portRef OUT (instanceRef OUTPUT_obuf_3 ))))
+     (net OUTPUT_2 
+      (joined 
+       (portRef (member OUTPUT 1))
+       (portRef OUT (instanceRef OUTPUT_obuf_2 ))))
+     (net OUTPUT_1 
+      (joined 
+       (portRef (member OUTPUT 2))
+       (portRef OUT (instanceRef OUTPUT_obuf_1 ))))
+     (net OUTPUT_0 
+      (joined 
+       (portRef (member OUTPUT 3))
+       (portRef OUT (instanceRef OUTPUT_obuf_0 ))))
+     (net OUTPUT_dup_0_3 
+      (joined 
+       (portRef Y (instanceRef OUTPUT_3 ))
+       (portRef IN1 (instanceRef ix13368z41041 ))))
+     (net OUTPUT_dup_0_2 
+      (joined 
+       (portRef Y (instanceRef OUTPUT_2 ))
+       (portRef IN1 (instanceRef ix12371z41041 ))))
+     (net OUTPUT_dup_0_1 
+      (joined 
+       (portRef Y (instanceRef OUTPUT_1 ))
+       (portRef IN1 (instanceRef ix11374z41041 ))))
+     (net OUTPUT_dup_0_0 
+      (joined 
+       (portRef Y (instanceRef OUTPUT_0 ))
+       (portRef IN1 (instanceRef ix10377z41041 ))))
+     (net not_COUNT_0 
+      (joined 
+       (portRef Y (instanceRef not_COUNT_0 ))
+       (portRef D (instanceRef modgen_counter_COUNT_reg_q_0 ))
+       (portRef IN2 (instanceRef ix48188z48515 ))
+       (portRef IN1 (instanceRef OUTPUT_3 ))
+       (portRef IN2 (instanceRef OUTPUT_1 ))))
+     (net nx47191z1 
+      (joined 
+       (portRef Y (instanceRef ps_vcc ))
+       (portRef CLRN (instanceRef modgen_counter_COUNT_reg_q_1 ))
+       (portRef PRN (instanceRef modgen_counter_COUNT_reg_q_1 ))
+       (portRef CLRN (instanceRef modgen_counter_COUNT_reg_q_0 ))
+       (portRef PRN (instanceRef modgen_counter_COUNT_reg_q_0 ))))
+     (net nx48188z1 
+      (joined 
+       (portRef Y (instanceRef ix48188z30852 ))
+       (portRef D (instanceRef modgen_counter_COUNT_reg_q_1 ))))
+     (net nx48188z2 
+      (joined 
+       (portRef Y (instanceRef ix48188z48515 ))
+       (portRef IN1 (instanceRef ix48188z30852 ))))
+     (net nx48188z3 
+      (joined 
+       (portRef Y (instanceRef ix48188z48516 ))
+       (portRef IN2 (instanceRef ix48188z30852 ))))
+     (net nx13368z1 
+      (joined 
+       (portRef Y (instanceRef ix13368z41041 ))
+       (portRef IN (instanceRef OUTPUT_obuf_3 ))))
+     (net nx12371z1 
+      (joined 
+       (portRef Y (instanceRef ix12371z41041 ))
+       (portRef IN (instanceRef OUTPUT_obuf_2 ))))
+     (net nx11374z1 
+      (joined 
+       (portRef Y (instanceRef ix11374z41041 ))
+       (portRef IN (instanceRef OUTPUT_obuf_1 ))))
+     (net nx10377z1 
+      (joined 
+       (portRef Y (instanceRef ix10377z41041 ))
+       (portRef IN (instanceRef OUTPUT_obuf_0 ))))
+     (net nx48188z4 
+      (joined 
+       (portRef Y (instanceRef ix48188z16929 ))
+       (portRef IN2 (instanceRef ix48188z48516 ))
+       (portRef IN2 (instanceRef OUTPUT_3 ))
+       (portRef IN2 (instanceRef OUTPUT_2 ))))))))
+ (design PRIORITY_N_COUNTER (cellRef PRIORITY_N_COUNTER (libraryRef work ))))

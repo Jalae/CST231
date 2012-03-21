@@ -1,0 +1,61 @@
+//  Precision RTL Synthesis 2011a.61 (Production Release) Fri May 20 13:37:48 PDT 2011
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2011, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Windows 7 kehnin.dyer@MCKAY Service Pack 1 6.01.7601 x86
+//  
+//  Start time Tue Mar 20 20:14:20 2012
+
+***************************************************************
+Device Utilization for EPM7064STC44
+***************************************************************
+Resource                          Used    Avail   Utilization
+---------------------------------------------------------------
+IOs                               25      32       78.13%
+LCs                               19      64       29.69%
+DFFs                              9       64       14.06%
+EXPs                              16      64       25.00%
+---------------------------------------------------------------
+
+**************************************************
+
+Library: work    Cell: Elevator    View: INTERFACE
+
+**************************************************
+
+  Cell     Library  References     Total Area
+
+ AND2      max7s    19 x
+ AND3      max7s     6 x
+ AND4      max7s     6 x
+ AND5      max7s     5 x
+ AND6      max7s     1 x
+ DFFE      max7s     9 x      1      9 DFFs
+                              1      9 LCs
+ EXP       max7s     3 x
+ GND       max7s     1 x
+ INBUF     max7s     1 x
+ NOT       max7s    17 x
+ OR2       max7s    14 x
+ OR3       max7s     3 x
+ OR4       max7s     1 x
+ OR5       max7s     2 x
+ OUTBUF    max7s    16 x
+ SOFT      max7s    10 x
+ VCC       max7s     1 x
+ XOR2      max7s     1 x
+
+ Number of ports :                      25
+ Number of nets :                      117
+ Number of instances :                 116
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of DFFs :                        9
+ Number of EXPs :                       16
+ Number of LCs :                        19
+ Number of accumulated instances :     116

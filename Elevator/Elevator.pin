@@ -1,4 +1,4 @@
- -- Copyright (C) 1991-2009 Altera Corporation
+ -- Copyright (C) 1991-2010 Altera Corporation
  -- Your use of Altera Corporation's design tools, logic functions 
  -- and other software and tools, and its AMPP partner logic 
  -- functions, and any output files from any of the foregoing 
@@ -40,10 +40,9 @@
  --					This pin should be connected to GND. It may also be connected  to a
  --					valid signal  on the board  (low, high, or toggling)  if that signal
  --					is required for a different revision of the design.
- -- GND*          : Unused  I/O  pin.   For transceiver I/O banks (Bank 13, 14, 15, 16 and 17),
- --           	    connect each pin marked GND* either individually through a 10k Ohm resistor
- --           	    to GND or tie all pins together and connect through a single 10k Ohm resistor
- --           	    to GND.
+ -- GND*          : Unused  I/O  pin.   For transceiver I/O banks, connect each pin marked GND*
+ --           	    either individually through a 10k Ohm resistor to GND or tie all pins
+ --           	    together and connect through a single 10k Ohm resistor to GND.
  --           	    For non-transceiver I/O banks, connect each pin marked GND* directly to GND
  --           	    or leave it unconnected.
  -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
@@ -60,7 +59,7 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 CHIP  "Elevator"  ASSIGNED TO AN: EPM7064SLC44-10
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
@@ -68,44 +67,44 @@ Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage 
 GND+                         : 1         :        :                   :         :           :                
 GND+                         : 2         :        :                   :         :           :                
 VCC                          : 3         : power  :                   :         :           :                
-Door[3]                      : 4         : output : TTL               :         :           : N              
-Door[1]                      : 5         : output : TTL               :         :           : N              
-Door[2]                      : 6         : output : TTL               :         :           : N              
+FB[0]                        : 4         : input  : TTL               :         :           : Y              
+FB[1]                        : 5         : input  : TTL               :         :           : Y              
+FB[2]                        : 6         : input  : TTL               :         :           : Y              
 TDI                          : 7         : input  : TTL               :         :           : N              
-nxtFlr[0]                    : 8         : output : TTL               :         :           : N              
-nxtFlr[1]                    : 9         : output : TTL               :         :           : N              
+FB[3]                        : 8         : input  : TTL               :         :           : Y              
+Call[0]                      : 9         : input  : TTL               :         :           : Y              
 GND                          : 10        : gnd    :                   :         :           :                
-curFlr[0]                    : 11        : output : TTL               :         :           : N              
-Door[0]                      : 12        : output : TTL               :         :           : N              
+Call[1]                      : 11        : input  : TTL               :         :           : Y              
+Call[2]                      : 12        : input  : TTL               :         :           : Y              
 TMS                          : 13        : input  : TTL               :         :           : N              
-FB[0]                        : 14        : input  : TTL               :         :           : N              
+Call[3]                      : 14        : input  : TTL               :         :           : Y              
 VCC                          : 15        : power  :                   :         :           :                
-Call[2]                      : 16        : input  : TTL               :         :           : N              
-RESERVED                     : 17        :        :                   :         :           :                
-RESERVED                     : 18        :        :                   :         :           :                
-RESERVED                     : 19        :        :                   :         :           :                
-RESERVED                     : 20        :        :                   :         :           :                
-curFlr[1]                    : 21        : output : TTL               :         :           : N              
+Door[0]                      : 16        : output : TTL               :         :           : Y              
+Door[1]                      : 17        : output : TTL               :         :           : Y              
+Door[2]                      : 18        : output : TTL               :         :           : Y              
+Door[3]                      : 19        : output : TTL               :         :           : Y              
+COM[0]                       : 20        : output : TTL               :         :           : Y              
+COM[1]                       : 21        : output : TTL               :         :           : Y              
 GND                          : 22        : gnd    :                   :         :           :                
 VCC                          : 23        : power  :                   :         :           :                
-RESERVED                     : 24        :        :                   :         :           :                
-RESERVED                     : 25        :        :                   :         :           :                
-RESERVED                     : 26        :        :                   :         :           :                
-RESERVED                     : 27        :        :                   :         :           :                
-RESERVED                     : 28        :        :                   :         :           :                
-Call[0]                      : 29        : input  : TTL               :         :           : N              
+COM[2]                       : 24        : output : TTL               :         :           : Y              
+SEG[6]                       : 25        : output : TTL               :         :           : Y              
+SEG[5]                       : 26        : output : TTL               :         :           : Y              
+SEG[4]                       : 27        : output : TTL               :         :           : Y              
+SEG[3]                       : 28        : output : TTL               :         :           : Y              
+SEG[2]                       : 29        : output : TTL               :         :           : Y              
 GND                          : 30        : gnd    :                   :         :           :                
-Call[1]                      : 31        : input  : TTL               :         :           : N              
+SEG[1]                       : 31        : output : TTL               :         :           : Y              
 TCK                          : 32        : input  : TTL               :         :           : N              
-RESERVED                     : 33        :        :                   :         :           :                
-RESERVED                     : 34        :        :                   :         :           :                
+SEG[0]                       : 33        : output : TTL               :         :           : Y              
+M_UP                         : 34        : output : TTL               :         :           : Y              
 VCC                          : 35        : power  :                   :         :           :                
 RESERVED                     : 36        :        :                   :         :           :                
-FB[1]                        : 37        : input  : TTL               :         :           : N              
+RESERVED                     : 37        :        :                   :         :           :                
 TDO                          : 38        : output : TTL               :         :           : N              
-FB[2]                        : 39        : input  : TTL               :         :           : N              
-FB[3]                        : 40        : input  : TTL               :         :           : N              
-Call[3]                      : 41        : input  : TTL               :         :           : N              
+M_DN                         : 39        : output : TTL               :         :           : Y              
+RESERVED                     : 40        :        :                   :         :           :                
+RESERVED                     : 41        :        :                   :         :           :                
 GND                          : 42        : gnd    :                   :         :           :                
-clk                          : 43        : input  : TTL               :         :           : N              
+clk                          : 43        : input  : TTL               :         :           : Y              
 GND+                         : 44        :        :                   :         :           :                

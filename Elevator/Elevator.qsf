@@ -41,7 +41,12 @@ set_global_assignment -name DEVICE "EPM7064SLC44-10"
 set_global_assignment -name TOP_LEVEL_ENTITY Elevator
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "11.1 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:07:59  MARCH 20, 2012"
-set_global_assignment -name LAST_QUARTUS_VERSION 9.1
+set_global_assignment -name LAST_QUARTUS_VERSION "9.1 SP2"
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name VERILOG_FILE BCD_7SEG.v
+set_global_assignment -name VERILOG_FILE lab1.v
 set_global_assignment -name VERILOG_FILE Elevator_sMachine.v
 set_global_assignment -name VERILOG_FILE Elevator_SetMotor.v
 set_global_assignment -name VERILOG_FILE Elevator_SetDestination.v
@@ -50,7 +55,4 @@ set_global_assignment -name VERILOG_FILE Elevator_ChangeFlr.v
 set_global_assignment -name VERILOG_FILE Elevator_ButtonLatch.v
 set_global_assignment -name VERILOG_FILE Elevator_ButtonDecode.v
 set_global_assignment -name VERILOG_FILE Elevator.v
-set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
-set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name VECTOR_WAVEFORM_FILE Elevator.vwf

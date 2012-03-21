@@ -1,0 +1,160 @@
+|Elevator
+clk => comb.DATAIN
+FB[0] => comb.DATAIN
+FB[1] => comb.DATAIN
+FB[2] => comb.DATAIN
+FB[3] => comb.DATAIN
+Call[0] => comb.DATAIN
+Call[1] => comb.DATAIN
+Call[2] => comb.DATAIN
+Call[3] => comb.DATAIN
+Door[0] <= Elevator_sMachine:smach.port3
+Door[1] <= Elevator_sMachine:smach.port3
+Door[2] <= Elevator_sMachine:smach.port3
+Door[3] <= Elevator_sMachine:smach.port3
+SEG[0] <= lab1:l.port1
+SEG[1] <= lab1:l.port1
+SEG[2] <= lab1:l.port1
+SEG[3] <= lab1:l.port1
+SEG[4] <= lab1:l.port1
+SEG[5] <= lab1:l.port1
+SEG[6] <= lab1:l.port1
+COM[0] <= lab1:l.port2
+COM[1] <= lab1:l.port2
+COM[2] <= lab1:l.port2
+M_UP <= M_UP.DB_MAX_OUTPUT_PORT_TYPE
+M_DN <= M_DN.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|Elevator_ButtonLatch:bl
+clk => always0.IN0
+clr => c.OUTPUTSELECT
+clr => c.OUTPUTSELECT
+clr => c.OUTPUTSELECT
+clr => c.OUTPUTSELECT
+curFlr[0] => ShiftLeft0.IN6
+curFlr[1] => ShiftLeft0.IN5
+a[0] => buttons[0].IN0
+a[1] => buttons[1].IN0
+a[2] => buttons[2].IN0
+a[3] => buttons[3].IN0
+b[0] => buttons[0].IN1
+b[1] => buttons[1].IN1
+b[2] => buttons[2].IN1
+b[3] => buttons[3].IN1
+c[0] <= c[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|Elevator_Moving:m
+button[0] => button[0].IN1
+button[1] => button[1].IN1
+button[2] => button[2].IN1
+button[3] => button[3].IN1
+curFlr[0] => curFlr[0].IN1
+curFlr[1] => curFlr[1].IN1
+dir <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+moving <= moving.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|Elevator_Moving:m|Elevator_SetDestination:sd
+curFlr[0] => ShiftLeft0.IN6
+curFlr[0] => ShiftLeft1.IN6
+curFlr[1] => ShiftLeft0.IN5
+curFlr[1] => ShiftLeft1.IN5
+button[0] => lower[0].IN1
+button[0] => toenc[0].DATAA
+button[1] => lower[1].IN1
+button[1] => toenc[1].DATAA
+button[2] => lower[2].IN1
+button[2] => toenc[2].DATAA
+button[3] => lower[3].IN1
+button[3] => toenc[3].DATAA
+nxtFlr[0] <= Elevator_ButtonDecode:BD.port1
+nxtFlr[1] <= Elevator_ButtonDecode:BD.port1
+
+
+|Elevator|Elevator_Moving:m|Elevator_SetDestination:sd|Elevator_ButtonDecode:BD
+code[0] => ~NO_FANOUT~
+code[1] => Decoder1.IN2
+code[2] => Decoder0.IN1
+code[2] => Decoder1.IN1
+code[3] => Decoder0.IN0
+code[3] => Decoder1.IN0
+num[0] <= num.DB_MAX_OUTPUT_PORT_TYPE
+num[1] <= num.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|Elevator_SetMotor:sm
+en => motor_up.IN0
+en => motor_down.IN1
+dir => motor_up.IN1
+dir => motor_down.IN0
+motor_up <= motor_up.DB_MAX_OUTPUT_PORT_TYPE
+motor_down <= motor_down.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|Elevator_ChangeFlr:cf
+clk => always0.IN0
+m_up => Equal0.IN2
+m_up => Equal1.IN2
+m_dn => Equal0.IN3
+m_dn => Equal1.IN3
+curFlr[0] <= curFlr[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+curFlr[1] <= curFlr[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|Elevator_sMachine:smach
+CLK => count[0].CLK
+CLK => count[1].CLK
+CLK => count[2].CLK
+CLK => count[3].CLK
+CLK => state.IN1
+Moving => state.DATAA
+Moving => Selector6.IN4
+Moving => comb.IN0
+Moving => Selector7.IN3
+MotorEn <= MotorEn.DB_MAX_OUTPUT_PORT_TYPE
+DoorAnim[0] <= DoorAnim.DB_MAX_OUTPUT_PORT_TYPE
+DoorAnim[1] <= DoorAnim.DB_MAX_OUTPUT_PORT_TYPE
+DoorAnim[2] <= DoorAnim.DB_MAX_OUTPUT_PORT_TYPE
+DoorAnim[3] <= DoorAnim.DB_MAX_OUTPUT_PORT_TYPE
+clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+flrChg <= flrChg.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Elevator|lab1:l
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+SEG[0] <= BCD_7SEG:b.port1
+SEG[1] <= BCD_7SEG:b.port1
+SEG[2] <= BCD_7SEG:b.port1
+SEG[3] <= BCD_7SEG:b.port1
+SEG[4] <= BCD_7SEG:b.port1
+SEG[5] <= BCD_7SEG:b.port1
+SEG[6] <= BCD_7SEG:b.port1
+COM[0] <= <VCC>
+COM[1] <= <GND>
+COM[2] <= <VCC>
+
+
+|Elevator|lab1:l|BCD_7SEG:b
+BCD[0] => Decoder0.IN3
+BCD[1] => Decoder0.IN2
+BCD[2] => Decoder0.IN1
+BCD[2] => Decoder1.IN1
+BCD[3] => Decoder0.IN0
+BCD[3] => Decoder1.IN0
+SEG_7[0] <= SEG_7.DB_MAX_OUTPUT_PORT_TYPE
+SEG_7[1] <= SEG_7.DB_MAX_OUTPUT_PORT_TYPE
+SEG_7[2] <= SEG_7.DB_MAX_OUTPUT_PORT_TYPE
+SEG_7[3] <= SEG_7.DB_MAX_OUTPUT_PORT_TYPE
+SEG_7[4] <= SEG_7.DB_MAX_OUTPUT_PORT_TYPE
+SEG_7[5] <= SEG_7.DB_MAX_OUTPUT_PORT_TYPE
+SEG_7[6] <= SEG_7.DB_MAX_OUTPUT_PORT_TYPE
+
+

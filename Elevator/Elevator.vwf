@@ -5,7 +5,7 @@ the Block Editor! File corruption is VERY likely to occur.
 */
 
 /*
-Copyright (C) 1991-2009 Altera Corporation
+Copyright (C) 1991-2010 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -277,7 +277,8 @@ TRANSITION_LIST("Call[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 2000.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 1940.0;
 	}
 }
 
@@ -286,9 +287,8 @@ TRANSITION_LIST("Call[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 180.0;
-		LEVEL 1 FOR 360.0;
-		LEVEL 0 FOR 1460.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 1940.0;
 	}
 }
 
@@ -297,9 +297,7 @@ TRANSITION_LIST("Call[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 180.0;
-		LEVEL 1 FOR 140.0;
-		LEVEL 0 FOR 1680.0;
+		LEVEL 0 FOR 2000.0;
 	}
 }
 
@@ -335,9 +333,7 @@ TRANSITION_LIST("FB[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 860.0;
-		LEVEL 1 FOR 580.0;
-		LEVEL 0 FOR 560.0;
+		LEVEL 0 FOR 2000.0;
 	}
 }
 
@@ -346,9 +342,7 @@ TRANSITION_LIST("FB[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 860.0;
-		LEVEL 1 FOR 1020.0;
-		LEVEL 0 FOR 120.0;
+		LEVEL 0 FOR 2000.0;
 	}
 }
 
@@ -468,7 +462,7 @@ DISPLAY_LINE
 DISPLAY_LINE
 {
 	CHANNEL = "Call";
-	EXPAND_STATUS = COLLAPSED;
+	EXPAND_STATUS = EXPANDED;
 	RADIX = ASCII;
 	TREE_INDEX = 1;
 	TREE_LEVEL = 0;
